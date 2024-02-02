@@ -28,7 +28,7 @@ resource "aws_instance" "server" {
   }
 
   tags = {
-    Name = "${local.name}-server"
+    Name = local.name
   }
 }
 

@@ -26,6 +26,8 @@ resource "aws_instance" "default" {
   vpc_security_group_ids      = [aws_security_group.default.id]
   ebs_optimized               = true
 
+  user_data = file("${path.module}/userdata.sh")
+
   # Requirement for NAT
   source_dest_check = false
 
@@ -39,7 +41,7 @@ resource "aws_instance" "default" {
   }
 
   tags = {
-    Name = "${local.name}"
+    Name = local.name
   }
 }
 
