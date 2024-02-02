@@ -14,12 +14,6 @@ Create a copy to the `.auto.tfvars` template to fine tune your deployment:
 cp config/templates.tfvars .auto.tfvars
 ```
 
-Create the SSH key pair to be associated with the VNS3 EC2 instance:
-
-```sh
-mkdir keys && ssh-keygen -f keys/vns3
-```
-
 Create the resources:
 
 ```sh

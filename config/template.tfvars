@@ -4,11 +4,9 @@ aws_region = "us-east-2"
 tags       = { "CreatedBy" = "Terraform" }
 
 # VNS3
-vns3_instance_type = "t3.small"
-vns3_ami           = "ami-02f11042622448b19"
-
+vns3_instance_type              = "t3a.nano"
+vns3_ami                        = "ami-02f11042622448b19"
 vns3_allowed_webui_ip_addresses = ["0.0.0.0/0"]
-vns3_allowed_ssh_ip_addresses   = ["0.0.0.0/0"]
 
 # Server
 create_private_server        = false

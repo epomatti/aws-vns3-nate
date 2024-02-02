@@ -10,23 +10,15 @@ resource "aws_eip" "default" {
   }
 }
 
-resource "aws_key_pair" "default" {
-  key_name   = "${local.name}-key"
-  public_key = file("${path.module}/../../keys/vns3.pub")
-}
-
 resource "aws_instance" "default" {
   ami                  = var.ami
   instance_type        = var.instance_type
   iam_instance_profile = var.instance_profile_id
-  key_name             = aws_key_pair.default.key_name
 
   associate_public_ip_address = true
   subnet_id                   = var.subnet
   vpc_security_group_ids      = [aws_security_group.default.id]
   ebs_optimized               = true
-
-  user_data = file("${path.module}/userdata.sh")
 
   # Requirement for NAT
   source_dest_check = false
@@ -88,15 +80,15 @@ resource "aws_security_group_rule" "vns3_webui" {
   security_group_id = aws_security_group.default.id
 }
 
-resource "aws_security_group_rule" "ingress_ssh" {
-  description       = "Allows SSH administration"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = var.allowed_ssh_ip_addresses
-  security_group_id = aws_security_group.default.id
-}
+# resource "aws_security_group_rule" "ingress_ssh" {
+#   description       = "Allows SSH administration"
+#   type              = "ingress"
+#   from_port         = 22
+#   to_port           = 22
+#   protocol          = "tcp"
+#   cidr_blocks       = var.allowed_ssh_ip_addresses
+#   security_group_id = aws_security_group.default.id
+# }
 
 resource "aws_security_group_rule" "egress_all" {
   description       = "For simplicity, allows all outbound traffic. Review this for production."

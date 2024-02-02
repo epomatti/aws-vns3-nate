@@ -27,16 +27,14 @@ module "iam" {
 }
 
 module "vns3" {
-  source              = "./modules/vns3"
-  workload            = var.workload
-  vpc_id              = module.vpc.vpc_id
-  subnet              = module.vpc.public_subnet_id
-  instance_type       = var.vns3_instance_type
-  ami                 = var.vns3_ami
-  instance_profile_id = module.iam.ec2_instance_profile_id
-
+  source                     = "./modules/vns3"
+  workload                   = var.workload
+  vpc_id                     = module.vpc.vpc_id
+  subnet                     = module.vpc.public_subnet_id
+  instance_type              = var.vns3_instance_type
+  ami                        = var.vns3_ami
+  instance_profile_id        = module.iam.ec2_instance_profile_id
   allowed_webui_ip_addresses = var.vns3_allowed_webui_ip_addresses
-  allowed_ssh_ip_addresses   = var.vns3_allowed_ssh_ip_addresses
 }
 
 resource "aws_route" "nat" {

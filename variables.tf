@@ -19,7 +19,7 @@ variable "tags" {
 ### VNS3 ###
 variable "vns3_instance_type" {
   type    = string
-  default = "t3.small"
+  default = "t3a.nano"
 }
 
 variable "vns3_ami" {
@@ -34,11 +34,11 @@ variable "vns3_allowed_webui_ip_addresses" {
   description = "The IP addresses that are allowed to use the Web UI in VNS3 instance"
 }
 
-variable "vns3_allowed_ssh_ip_addresses" {
-  type        = list(string)
-  default     = ["0.0.0.0/0"]
-  description = "The IP addresses that are allowed to SSH into the VNS3 instance"
-}
+# variable "vns3_allowed_ssh_ip_addresses" {
+#   type        = list(string)
+#   default     = ["54.236.197.84/32"]
+#   description = "The IP addresses that are allowed to SSH into the VNS3 instance"
+# }
 
 ### Private Server ###
 variable "create_private_server" {

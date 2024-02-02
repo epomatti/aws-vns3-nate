@@ -25,7 +25,3 @@ variable "instance_profile_id" {
 variable "allowed_webui_ip_addresses" {
   type = list(string)
 }
-
-variable "allowed_ssh_ip_addresses" {
-  type = list(string)
-}
