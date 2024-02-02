@@ -32,13 +32,10 @@ resource "aws_instance" "default" {
   root_block_device {
     encrypted   = true
     volume_type = "gp3"
-  }
 
-  lifecycle {
-    ignore_changes = [
-      ami,
-      associate_public_ip_address
-    ]
+    tags = {
+      "Name" = "ebs-${var.workload}"
+    }
   }
 
   tags = {
@@ -48,9 +45,8 @@ resource "aws_instance" "default" {
 
 ### IAM Role ###
 resource "aws_security_group" "default" {
-  name        = "${local.name}-sg"
-  description = "Controls access for EC2 via Session Manager"
-  vpc_id      = var.vpc_id
+  name   = "${local.name}-sg"
+  vpc_id = var.vpc_id
 
   tags = {
     Name = "sg-${local.name}"

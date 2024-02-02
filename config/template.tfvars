@@ -7,6 +7,9 @@ tags       = { "CreatedBy" = "Terraform" }
 vns3_instance_type = "t3.small"
 vns3_ami           = "ami-02f11042622448b19"
 
+vns3_allowed_webui_ip_addresses = ["0.0.0.0/0"]
+vns3_allowed_ssh_ip_addresses   = ["0.0.0.0/0"]
+
 # Server
 create_private_server        = false
 private_server_ami           = "ami-0748d13ffbc370c2b"
