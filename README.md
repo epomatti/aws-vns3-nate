@@ -1,13 +1,12 @@
 # VNS3 NATe
 
-Cohesive Networks VNS3 NATe running on AWS.
-
-> This project is based on `6.1.3-20230925`.
+Terraform implementation of Cohesive Networks [VNS3 NATe][1] running on AWS.
 
 <img src=".assets/vns3.png" />
 
+The image is ready for use in the [AWS Marketplace][2]. A [free option][3] is also available with limited instances and throughput. Additional articles can be found for [getting started][4], [cloud setup][5], and [AWS features][6].
 
-## Setup
+## Deploy
 
 Create a copy to the `.auto.tfvars` template to fine tune your deployment:
 
@@ -21,8 +20,6 @@ Create the SSH key pair to be associated with the VNS3 EC2 instance:
 mkdir keys && ssh-keygen -f keys/vns3
 ```
 
-## Deploy
-
 Create the resources:
 
 ```sh
@@ -30,25 +27,30 @@ terraform init
 terraform apply -auto-approve
 ```
 
-"https://<instance-public-ip>:8000"
+The Web UI administration URL will be part of the output.
+
+Connect to the admin panel:
+
+```
+https://<instance-public-ip>:8000
+```
+
+Credentials
 
 - Username: vnscubed
-- Password: i-000d15ffc5c7d9370
+- Password: The instance ID (E.g.: i-012fsd8a9fsd823cv)
 
 
-## Server
+To test connections from the the private server, use SSM:
 
 ```sh
 aws ssm start-session --target <instance>
 ```
 
 
-https://docs.cohesive.net/docs/nate/
-
-https://aws.amazon.com/marketplace/pp/prodview-wf7yma4f6mdw4
-https://aws.amazon.com/marketplace/pp/prodview-beu27g23xt4ok
-
-https://docs.cohesive.net/tutorials/getting-started/
-https://docs.cohesive.net/docs/cloud-setup/aws/
-
-https://docs.cohesive.net/docs/vns3/aws-features/
+[1]: https://docs.cohesive.net/docs/nate/
+[2]: https://aws.amazon.com/marketplace/pp/prodview-beu27g23xt4ok
+[3]: https://aws.amazon.com/marketplace/pp/prodview-wf7yma4f6mdw4
+[4]: https://docs.cohesive.net/tutorials/getting-started/
+[5]: https://docs.cohesive.net/docs/cloud-setup/aws/
+[6]: https://docs.cohesive.net/docs/vns3/aws-features/
