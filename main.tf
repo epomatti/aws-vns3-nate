@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.34.0"
+      version = "5.48.0"
     }
   }
 }
@@ -20,6 +20,13 @@ module "vpc" {
   region   = var.aws_region
   workload = var.workload
 }
+
+# module "vpc_endpoints" {
+#   source = "./modules/endpoints"
+#   vpc_id = module.vpc.vpc_id
+#   aws_region = var.aws_region
+#   security_group_id = 
+# }
 
 module "iam" {
   source   = "./modules/iam"
