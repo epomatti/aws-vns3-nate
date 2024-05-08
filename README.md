@@ -29,10 +29,14 @@ Connect to the admin panel:
 https://<instance-public-ip>:8000
 ```
 
-Credentials
+It will take a while for the box to boot:
 
-- Username: vnscubed
-- Password: The instance ID (E.g.: i-012fsd8a9fsd823cv)
+<img src=".assets/vns3-loading.png" width=500 />
+
+Once booted, enter the credentials:
+
+- Username: `vnscubed`
+- Password: **Instance ID** (E.g.: i-012fsd8a9fsd823cv)
 
 
 To test connections from the the private server, use SSM:
@@ -41,6 +45,9 @@ To test connections from the the private server, use SSM:
 aws ssm start-session --target <instance>
 ```
 
+## URL Filter
+
+The VNS3 NATe box supports [URL filtering] for simple egress control. More details are provided in [this documentation][8].
 
 [1]: https://docs.cohesive.net/docs/nate/
 [2]: https://aws.amazon.com/marketplace/pp/prodview-beu27g23xt4ok
@@ -48,3 +55,5 @@ aws ssm start-session --target <instance>
 [4]: https://docs.cohesive.net/tutorials/getting-started/
 [5]: https://docs.cohesive.net/docs/cloud-setup/aws/
 [6]: https://docs.cohesive.net/docs/vns3/aws-features/
+[7]: https://docs.cohesive.net/docs/nate/?_ga=2.187348392.1255134898.1715113453-1776422420.1715113453#what-is-included
+[8]: https://cohesive.net/blog/replace-nat-with-nate-part-2/

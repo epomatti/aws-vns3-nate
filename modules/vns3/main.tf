@@ -80,16 +80,6 @@ resource "aws_security_group_rule" "vns3_webui" {
   security_group_id = aws_security_group.default.id
 }
 
-# resource "aws_security_group_rule" "ingress_ssh" {
-#   description       = "Allows SSH administration"
-#   type              = "ingress"
-#   from_port         = 22
-#   to_port           = 22
-#   protocol          = "tcp"
-#   cidr_blocks       = var.allowed_ssh_ip_addresses
-#   security_group_id = aws_security_group.default.id
-# }
-
 resource "aws_security_group_rule" "egress_all" {
   description       = "For simplicity, allows all outbound traffic. Review this for production."
   type              = "egress"
