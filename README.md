@@ -45,9 +45,11 @@ To test connections from the the private server, use SSM:
 aws ssm start-session --target <instance>
 ```
 
-## URL Filter
+## URL Filtering
 
 The VNS3 NATe box supports [URL filtering][7] for simple egress control. More details are provided in [this documentation][8].
+
+There are two Premium offerings for this purpose, which at this time must be acquired directly with Cohesive sales channel.
 
 [1]: https://docs.cohesive.net/docs/nate/
 [2]: https://aws.amazon.com/marketplace/pp/prodview-beu27g23xt4ok
