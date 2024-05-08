@@ -47,7 +47,7 @@ aws ssm start-session --target <instance>
 
 ## URL Filter
 
-The VNS3 NATe box supports [URL filtering] for simple egress control. More details are provided in [this documentation][8].
+The VNS3 NATe box supports [URL filtering][7] for simple egress control. More details are provided in [this documentation][8].
 
 [1]: https://docs.cohesive.net/docs/nate/
 [2]: https://aws.amazon.com/marketplace/pp/prodview-beu27g23xt4ok
