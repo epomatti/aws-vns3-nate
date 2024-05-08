@@ -31,7 +31,7 @@ https://<instance-public-ip>:8000
 
 It will take a while for the box to boot:
 
-<img src=".assets/vns3-loading.png" width=500 />
+<img src=".assets/aws-vns3-loading.png" width=500 />
 
 Once booted, enter the credentials:
 
